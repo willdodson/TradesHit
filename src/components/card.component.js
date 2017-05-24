@@ -11,16 +11,18 @@ const CardStyles = {
 export default class SymCard extends React.Component {
     render() {
         return (
-            <Card color={CommonStyles.colorName} style={CardStyles.CardLayout}>
+            <Card   color={CommonStyles.colorName} 
+                    style={CardStyles.CardLayout}
+                    onClick={this.props.onCardClicked}>
                 <Image src='/assets/images/product.jpg' />
                 <Card.Content>
                     <Card.Header> Item#Name </Card.Header>
                     <Card.Meta>
                         <span className='date'>
-                        <Icon name='rupee' /> 324
+                            <Icon name='rupee' /> 324
                         </span>
                     </Card.Meta>
-                    <Card.Description> Matthew is a musician living in Nashville. </Card.Description>
+                    <Card.Description> Item Description here </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
                     <Button.Group>

@@ -20,7 +20,7 @@ export default class SymMenu extends React.Component {
                                 <Dropdown text={menuItem.displayName}>
                                     <Dropdown.Menu>
                                      {
-                                          menuItem.categoryOptions.map(category => (
+                                          menuItem.categories.map(category => (
                                             <Dropdown.Item text={category.displayName} key={category.displayName}/>
                                           ))
                                      }

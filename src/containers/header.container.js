@@ -9,9 +9,9 @@ import SymMenu from '../components/menu.component';
 import CommonStyles from '../constants/common.styles';
 
 const MenuItems = [
-    { displayName: 'Fashion', categoryOptions: [{displayName: 'Footwear'}, {displayName: 'Topwear'}, {displayName: 'Bottomwear'}]},
-    { displayName: 'Electronics',  categoryOptions: [{displayName: 'Mobiles'}, {displayName: 'Tablets'}, {displayName: 'Laptops'}]},
-    { displayName: 'Books',  categoryOptions: [{displayName: 'Novels'}, {displayName: 'Magzines'}, {displayName: 'Academics'}]}
+    { displayName: 'Fashion', categories: [{displayName: 'Footwear'}, {displayName: 'Topwear'}, {displayName: 'Bottomwear'}]},
+    { displayName: 'Electronics',  categories: [{displayName: 'Mobiles'}, {displayName: 'Tablets'}, {displayName: 'Laptops'}]},
+    { displayName: 'Books',  categories: [{displayName: 'Novels'}, {displayName: 'Magzines'}, {displayName: 'Academics'}]}
 ];
 
 export default class SymHeader extends React.Component {
