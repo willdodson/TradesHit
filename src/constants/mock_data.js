@@ -6,22 +6,22 @@ const MasterData = Object.freeze({
         { displayName: 'Kids' },
         { displayName: 'Furniture' }
     ],
-    Categories: {
-        Footwear: { displayName: 'Footwear', segment: 'Fashion' },
-        Topwear: { displayName: 'Topwear', segment: 'Fashion' },
-        Bottomwear: { displayName: 'Bottomwear', segment: 'Fashion' },
-        Mobile: { displayName: 'Mobiles', segment: 'Electronics' },
-        Laptop: { displayName: 'Laptops', segment: 'Electronics' },
-        Tablet: { displayName: 'Tablets', segment: 'Electronics' },
-        Novel: { displayName: 'Novels', segment: 'Books' },
-        Magzine: { displayName: 'Magzines', segment: 'Books' },
-        Academics: { displayName: 'Academics', segment: 'Books' },
-        Toy: { displayName: 'Toys', segment: 'Kids' },
-        BabyCare: { displayName: 'Baby Care', segment: 'Kids' },
-        Sofa: { displayName: 'Sofa', segment: 'Furniture' },
-        Bed: { displayName: 'Bed', segment: 'Furniture' },
-        Curtain: { displayName: 'Curtains', segment: 'Furniture' },
-    },
+    Categories: [
+        { displayName: 'Footwear',  segment: 'Fashion',     name: 'Footwear'},
+        { displayName: 'Topwear',   segment: 'Fashion',     name: 'Topwear' },
+        { displayName: 'Bottomwear',segment: 'Fashion',     name: 'Bottomwear' },
+        { displayName: 'Mobiles',   segment: 'Electronics', name: 'Mobile' },
+        { displayName: 'Laptops',   segment: 'Electronics', name: 'Laptop' },
+        { displayName: 'Tablets',   segment: 'Electronics', name: 'Tablet' },
+        { displayName: 'Novels',    segment: 'Books',       name: 'Novel' },
+        { displayName: 'Magzines',  segment: 'Books',       name: 'Magzine' },
+        { displayName: 'Academics', segment: 'Books',       name: 'Academics' },
+        { displayName: 'Toys',      segment: 'Kids',        name: 'Toy' },
+        { displayName: 'Baby Care', segment: 'Kids',        name: 'BabyCare' },
+        { displayName: 'Sofa',      segment: 'Furniture',   name: 'Sofa' },
+        { displayName: 'Bed',       segment: 'Furniture',   name: 'Bed' },
+        { displayName: 'Curtains',  segment: 'Furniture',   name: 'Curtain' },
+    ],
     Products: {
         // Footwear
         AdidasGOLETTOVI:    { category: 'Footwear', displayName: 'Adidas GOLETTO VI', price: 2399, description: 'Synthetic Leather | Blue'},
@@ -94,26 +94,71 @@ const NavBarData = (function fetchNavData() {
 const LandingPageData = (function fetchLandingPageData() {
     return {
         sections: [
-            { displayName: 'Top Deals', items: [
-                MasterData.Products.AdidasGOLETTOVI, 
-                MasterData.Products.AppleIphone7, 
-                MasterData.Products.CampusSutraFullSleeve
+            {   displayName: 'Top Deals',
+                name: "top_deals", 
+                items: [
+                    MasterData.Products.AdidasGOLETTOVI, 
+                    MasterData.Products.AppleIphone7, 
+                    MasterData.Products.CampusSutraFullSleeve
                 ]
             },
-            { displayName: 'Top Selling', items: [
-                MasterData.Products.BlackCoffeeSlimFitTrousers, 
-                MasterData.Products.LenovoPhab2Plus, 
-                MasterData.Products.Nexus6
+            {   displayName: 'Top Selling', 
+                name: "top_selling", 
+                items: [
+                    MasterData.Products.BlackCoffeeSlimFitTrousers, 
+                    MasterData.Products.LenovoPhab2Plus, 
+                    MasterData.Products.Nexus6
                 ]
             },
-            { displayName: 'Your searches', items: [
-                MasterData.Products.Digit, 
-                MasterData.Products.WoodenBrownSofa, 
-                MasterData.Products.WoodenHeadRestBed
+            {   displayName: 'Your searches', 
+                name: "your_searches", 
+                items: [
+                    MasterData.Products.Digit, 
+                    MasterData.Products.WoodenBrownSofa, 
+                    MasterData.Products.WoodenHeadRestBed
                 ]
             },
         ]
     }
 })();
 
-export { NavBarData, LandingPageData };
+const SectionPageData = function (sectionName) {
+    return {
+        name: sectionName,
+        displayName: 'You are viewing - ' + sectionName,
+        items: [
+            MasterData.Products.AdidasGOLETTOVI,
+            MasterData.Products.AdidasX,
+            MasterData.Products.AlienwareCorei7,
+            MasterData.Products.AngelsAndDemons,
+            MasterData.Products.AppleIphone7,
+            MasterData.Products.BigBear,
+            MasterData.Products.BlackCoffeeSlimFitTrousers,
+            MasterData.Products.BlueCurtains,
+            MasterData.Products.CampusSutraSolidMenRoundNeck,
+            MasterData.Products.ConceptsßofPhysics,
+            MasterData.Products.Digit,
+            MasterData.Products.EnteprenuerWorl,
+            MasterData.Products.FlyingMachineRegularJeans,
+            MasterData.Products.HarryPotter,
+            MasterData.Products.IballSlideSnap,
+            MasterData.Products.JhonsonBabyPowder,
+            MasterData.Products.JohnPlayersSlimFitTrousers,
+            MasterData.Products.JohnsonBabyOil,
+            MasterData.Products.LenovoPhab2Plus,
+            MasterData.Products.LenovoYoga3,
+            MasterData.Products.LycanDzire,
+            MasterData.Products.ManiacFullSleeveSolid
+        ]
+    }
+}
+
+const ProductDetailData = function (productDisplayName) {
+    let productVariables = Object.keys(MasterData.Products);
+    const requiredProduct = productVariables.find(variableName => {
+        return MasterData.Products[variableName].displayName == productDisplayName;
+    });
+    return MasterData.Products[requiredProduct];
+}
+
+export { NavBarData, LandingPageData, SectionPageData, ProductDetailData };

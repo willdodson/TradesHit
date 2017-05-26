@@ -5,9 +5,9 @@ let logger = (store) => (next) => (action) => {
     if(typeof action  =='function'){
         console.log('[Async Event] ....');
     }else{
-        console.log(`[${action.type}] ---> `, action.payload);
+        console.log(`[Action][${action.type}] ---> `, action.payload);
     }
     return next(action);
 };
-
-export default applyMiddleware( logger, thunk);
+const _middlewares = [logger, thunk];
+export default applyMiddleware(..._middlewares);

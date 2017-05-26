@@ -1,4 +1,9 @@
-const initialState = {};
+const initialState = {
+    address: 'Shahdara, Delhi-32',
+    firstName: '',
+    lastName: '',
+    active: true
+};
 
 const userReducer = (state = initialState, action = {}) => {
     console.log(`UserReducer#${action.type}`);

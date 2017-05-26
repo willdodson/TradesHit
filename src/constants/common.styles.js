@@ -4,6 +4,8 @@ const ApplicationThemes = {
         secondaryButtonColor: 'olive',
         backgroundColor: '#6435C9',
         colorName: 'violet',
+        labelPrimaryColor: 'red',
+        labelSecondaryColor: 'green',
         header: {
             backgroundColor: '#6435C9',
             margin: 0

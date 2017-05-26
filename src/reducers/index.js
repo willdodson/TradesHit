@@ -1,5 +1,13 @@
 import { combineReducers } from 'redux';
 
-import users from './user.reducer';
+import user from './user.reducer';
+import landingPage from './landing_page.reducer';
+import sectionPage from './section.reducer';
+import productDetail from './product_detail.reducer';
 
-export default combineReducers({ users })
+export default combineReducers({ 
+    user, 
+    landingPage,
+    sectionPage,
+    productDetail
+})
