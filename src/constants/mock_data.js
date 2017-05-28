@@ -161,4 +161,19 @@ const ProductDetailData = function (productDisplayName) {
     return MasterData.Products[requiredProduct];
 }
 
-export { NavBarData, LandingPageData, SectionPageData, ProductDetailData };
+const LoginUser = (function () {
+    return {
+        firstName: 'Jack',
+        lastName: 'Danieal',
+        address: 'Everywhere',
+        active: true
+    };
+})();
+
+export { 
+        NavBarData, 
+        LandingPageData, 
+        SectionPageData, 
+        ProductDetailData,
+        LoginUser 
+    };

@@ -5,6 +5,7 @@ import SymSearch from '../components/search.component';
 import SymLogo from '../components/logo.component';
 import SymUserAvatar from '../components/avatar.component';
 import SymMenu from '../components/menu.component';
+import SymSigningModal from '../components/signing.component';
 
 import CommonStyles from '../constants/common.styles';
 
@@ -26,7 +27,10 @@ export default class SymHeader extends React.Component {
                     <Grid.Column width={1}>  <SymLogo />   </Grid.Column>
                     <Grid.Column width={13}> <SymSearch /> </Grid.Column>
                     <Grid.Column width={2}>
-                        <SymUserAvatar user={this.props.user}/>
+                        {
+                            this.props.user ? (<SymSigningModal />): 
+                            (<SymUserAvatar user={this.props.user}/>)
+                        }
                     </Grid.Column>
                 </Grid.Row>
                 <Grid.Row columns={1}>

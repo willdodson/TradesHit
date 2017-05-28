@@ -19,4 +19,29 @@ const ProductDetailPageActions = {
     FetchProductDetailContentFail: 'FetchProductDetailContentFail'
 }
 
-export { LandingPageActions, SectionPageActions, ProductDetailPageActions };
+const SignUpActions = {
+    SignupStart: 'SignupStart',
+    SignupSuccess: 'SignupSuccess',
+    SignupEnd: 'SignupEnd'
+}
+
+const SignInActions = {
+    SignInStart: 'SignInStart',
+    SignInSuccess: 'SignInSuccess',
+    SignInEnd: 'SignInEnd'
+}
+
+const UpdateUserProfileActions = {
+    UpdateProfileStart: 'UpdateProfileStart',
+    UpdateProfileSuccess: 'UpdateProfileSuccess',
+    UpdateProfileEnd: 'UpdateProfileEnd'
+}
+
+export {
+        LandingPageActions, 
+        SectionPageActions, 
+        ProductDetailPageActions,
+        SignUpActions,
+        SignInActions,
+        UpdateUserProfileActions 
+    };
