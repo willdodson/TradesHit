@@ -13,20 +13,28 @@ const SignUpFormAttributes = {
         },
         Password: {
             inputName: 'password'
-        }},
+        },
+        Email: {
+            inputName: 'email'
+        }
+    
+    },
     initialState = {
         firstName: '',
         lastName: '',
         userName: '',
-        password: ''
+        password: '',
+        email: ''
 }
 
 export default class SignUpForm extends React.Component {
     
     _handler = (e, data) => {
+        e.preventDefault();
         const userInputs = {}
         this.props.signUpHandler({
-            userName: this.state.userName,
+            // userName: this.state.userName,
+            email: this.state.email,
             password: this.state.password,
             firstName: this.state.firstName,
             lastName: this.state.lastName
@@ -46,8 +54,8 @@ export default class SignUpForm extends React.Component {
             case SignUpFormAttributes.LastName.inputName:
                 this.setState({ lastName: e.target.value });
                 break;
-            case SignUpFormAttributes.UserName.inputName:
-                this.setState({ userName: e.target.value });
+            case SignUpFormAttributes.Email.inputName:
+                this.setState({ email: e.target.value });
                 break;
             case SignUpFormAttributes.Password.inputName:
                 this.setState({ password: e.target.value });
@@ -66,20 +74,22 @@ export default class SignUpForm extends React.Component {
                         onChange={(e) => this.handleChange(e, SignUpFormAttributes.FirstName.inputName)}
                         name={SignUpFormAttributes.FirstName.inputName}/>
                 </Form.Field>
-
+                <br/>
                 <Form.Field>
                 <label>Last Name</label>
                 <input placeholder='Your last name' 
                         onChange={(e) => this.handleChange(e, SignUpFormAttributes.LastName.inputName)}
                         name={SignUpFormAttributes.LastName.inputName}/>
                 </Form.Field>
+                <br/>
 
                 <Form.Field>
-                <label>Username/email</label>
-                <input placeholder='Enter your username or email' 
-                        onChange={(e) => this.handleChange(e, SignUpFormAttributes.UserName.inputName)}
-                        name={SignUpFormAttributes.UserName.inputName}/>
+                <label>Email</label>
+                <input placeholder='Enter your email' 
+                        onChange={(e) => this.handleChange(e, SignUpFormAttributes.Email.inputName)}
+                        name={SignUpFormAttributes.Email.inputName}/>
                 </Form.Field>
+                <br/>
 
                 <Form.Field>
                 <label>Password</label>

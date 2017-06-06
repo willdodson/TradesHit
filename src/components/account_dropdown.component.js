@@ -1,5 +1,7 @@
 import { Dropdown } from 'semantic-ui-react';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 import React from 'react';
+
 const Label = {
     color: 'white',
     display: 'inline-block',
@@ -27,21 +29,27 @@ export default class AccountDropDown extends React.Component {
     };
     render() {
         return (
+            
             <Dropdown text={`Hi, ${this.props.user.firstName}`} style={Label}>
                 <Dropdown.Menu>
-                <Dropdown.Item { ...DropDownItems.Account} 
-                    href="/profile"
-                />
-                <Dropdown.Item { ...DropDownItems.Settings}
-                    href="/settings"
-                />
-                <Dropdown.Divider />
-                <Dropdown.Item { ...DropDownItems.Help}
-                    href="/help"
-                />
-                <Dropdown.Item { ...DropDownItems.Signout}
-                    onClick={(e, data) => this.onDropDownClicked(e, data, DropDownItems.Signout.name)}
-                />
+                
+                    <Dropdown.Item >
+                        <Link to="/profile"> { DropDownItems.Account.text }</Link>
+                    </Dropdown.Item>
+
+                    <Dropdown.Item>
+                        <Link to="/settings"> { DropDownItems.Settings.text }</Link>
+                    </Dropdown.Item>
+
+                    <Dropdown.Divider />
+
+                    <Dropdown.Item { ...DropDownItems.Help}
+                        href="/help"
+                    />
+
+                    <Dropdown.Item { ...DropDownItems.Signout}
+                        onClick={(e, data) => this.onDropDownClicked(e, data, DropDownItems.Signout.name)}
+                    />
                 </Dropdown.Menu>
             </Dropdown>
         )

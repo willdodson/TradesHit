@@ -9,6 +9,7 @@ const sections = [
 
 export default class SymBreadCrum extends React.Component {
     render() {
+        console.log(this.props);
         return (
             <Breadcrumb icon='right angle' sections={sections}>
             </Breadcrumb>

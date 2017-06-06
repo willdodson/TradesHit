@@ -22,7 +22,7 @@ const ProductDetailPageActions = {
 const SignUpActions = {
     SignupStart: 'SignupStart',
     SignupSuccess: 'SignupSuccess',
-    SignupEnd: 'SignupEnd'
+    SignupFail: 'SignupFail'
 }
 
 const SignInActions = {

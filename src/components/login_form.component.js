@@ -1,8 +1,8 @@
 import React from 'react';
 import { Form, Button } from 'semantic-ui-react';
 const LoginFormAttributes = {
-    UserName: {
-        inputName: 'user_name'
+    Email: {
+        inputName: 'email'
     },
     Password: {
         inputName: 'password'
@@ -10,7 +10,7 @@ const LoginFormAttributes = {
 }
 
 const initialState = {
-    userName: '',
+    email: '',
     password: ''
 }
 
@@ -22,8 +22,9 @@ export default class LoginForm extends React.Component{
     }
     
     _handler = (e, data) => {
+        e.preventDefault();
         this.props.signInHandler({
-            username: this.state.username,
+            email: this.state.email,
             password: this.state.password
         });
     }
@@ -31,8 +32,8 @@ export default class LoginForm extends React.Component{
     handleChange = (e, name) => {
         e.preventDefault();
         switch(name){
-            case LoginFormAttributes.UserName.inputName:
-                this.setState({ username: e.target.value });
+            case LoginFormAttributes.Email.inputName:
+                this.setState({ email: e.target.value });
                 break;
             case LoginFormAttributes.Password.inputName:
                 this.setState({ password: e.target.value });
@@ -44,14 +45,14 @@ export default class LoginForm extends React.Component{
 
     render() {
         return (
-            <div>
+            <Form>
                 <div>
                     <Form.Field>
                     <label>Username/email</label>
                     <input placeholder='Enter your username or email' 
-                            value={this.state.username} 
-                            onChange={(e) => this.handleChange(e, LoginFormAttributes.UserName.inputName)}
-                            name={LoginFormAttributes.UserName.inputName}/>
+                            value={this.state.email} 
+                            onChange={(e) => this.handleChange(e, LoginFormAttributes.Email.inputName)}
+                            name={LoginFormAttributes.Email.inputName}/>
                     </Form.Field>
                     <br />
 
@@ -66,7 +67,7 @@ export default class LoginForm extends React.Component{
 
                     <Button onClick={(e, data) => {this._handler(e, data)}}>Submit</Button>
                 </div>
-            </div>
+            </Form>
         );
     }
 }
