@@ -9,5 +9,6 @@ let logger = (store) => (next) => (action) => {
     }
     return next(action);
 };
+
 const _middlewares = [logger, thunk];
 export default applyMiddleware(..._middlewares);
