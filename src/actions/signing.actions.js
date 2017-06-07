@@ -1,16 +1,15 @@
+import fetch from 'isomorphic-fetch';
+
 import { SignUpActions, SignInActions, UpdateUserProfileActions } from '../constants/actions.js';
 import { LoginUser } from '../constants/mock_data';
 import { ApiPath } from '../constants/network.constant';
-import fetch from 'isomorphic-fetch';
 import { http } from '../utils/index';
 
-console.log(`${ApiPath} ... Api path`)
 const Apis = {
     Signin: `${ApiPath}/auth/local`,
     Signup: `${ApiPath}/api/users`,
-    updateProfile: `${ApiPath}/api/users/me`
+    UpdateProfile: `${ApiPath}/api/users/me`
 }
-console.log(`${Apis.Signup} ... Signup`);
 
 const signup = (userInput) => {
     return (dispatch) => {
@@ -22,14 +21,13 @@ const signup = (userInput) => {
             saveAccessToken: true
         })
             .then(data => {
-                dispatch({type: SignUpActions.SignupSuccess, payload: LoginUser})
+                dispatch({type: SignUpActions.SignupSuccess, payload: data.user})
             });
     }
 };
 
 const signin = (userInput) => {
     return (dispatch) => {
-        console.log('>>>>>> ', JSON.stringify(userInput));
         dispatch({ type: SignInActions.SignInStart });
         http({
             url: Apis.Signin,
@@ -38,7 +36,7 @@ const signin = (userInput) => {
             saveAccessToken: true
         }) 
             .then(data => {
-                dispatch({type: SignUpActions.SignupSuccess, payload: LoginUser})
+                dispatch({type: SignUpActions.SignupSuccess, payload: data.user})
             })
             .catch(error => dispatch({type: SignUpActions.SignupFail, payload: error}))
     }
@@ -48,7 +46,7 @@ const updateProfile = (user) => {
     return (dispatch) => {
         dispatch({ type: UpdateUserProfileActions.UpdateProfileStart });
         http({
-            url: Apis.updateProfile,
+            url: Apis.UpdateProfile,
             method: 'PUT',
             body: user
         })

@@ -44,7 +44,7 @@ const http = (options = defaultHttpOptions) => {
     const url = fetchOptions.url;
     delete fetchOptions.url;
 
-    if(accessToken && options.excludeAccessToken){      // 
+    if(accessToken && !options.excludeAccessToken){      // 
         fetchOptions.headers['Authorization'] = `Bearer ${accessToken}`; 
     }
 
@@ -52,16 +52,18 @@ const http = (options = defaultHttpOptions) => {
         fetchOptions.body = JSON.stringify(fetchOptions.body); 
     }
 
-    console.log('<<<< http >>>>>', fetchOptions);
+    // console.log('<<<< http >>>>>', fetchOptions);
     return new Promise((resolve, reject) => {
         fetch(url, fetchOptions)
             .then(response => {
                 if(response.status == 200){
-                    let _data = response.json();
-                    if(options.saveAccessToken && _data.token){
-                        AccessTokenFactory().setToken(_data.token)
-                    }
-                    return resolve(_data);
+                    response.json()
+                        .then(_data => {
+                            if(options.saveAccessToken && _data.token){
+                                AccessTokenFactory().setToken(_data.token)
+                            }
+                            return resolve(_data);
+                        })
                 }else{
                     return reject(response.json());
                 }
@@ -71,4 +73,4 @@ const http = (options = defaultHttpOptions) => {
     // return fetch(url, fetchOptions);
 }
 
-export default http;
+export { http, AccessTokenFactory };

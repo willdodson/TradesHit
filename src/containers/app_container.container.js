@@ -9,11 +9,19 @@ import SymProducDetail from './product_detail.container';
 import SymProfile from '../components/profile.component';
 import SymRoute from '../components/custom_route.component';
 import ProtectedRoute from '../components/withAuth.component';
+import { AccessTokenFactory } from '../utils/index'; 
 
-// function withAuth(component) {
-//     return <component />
-// }
+let isAuthenticated = (wrappedComponent) => {
+    return (props) => {
+        const hasToken = AccessTokenFactory().getToken();
+        return (
+            hasToken ?
+            <Route path='/profile' component={wrappedComponent} />:
+            <Redirect to='/' />
 
+        );
+    }
+};
 export default class AppContainer extends React.Component {
     render() {
         return (
@@ -27,7 +35,7 @@ export default class AppContainer extends React.Component {
                             <Route exact path="/" component={LandingPage}></Route>
                             <Route path="/sections/:name" component={SymSection}></Route>
                             <Route path="/item/:name" component={SymProducDetail} />
-                            <Route path="/profile" component={SymProfile} />
+                            <Route path="/profile" component={isAuthenticated(SymProfile)} />
                                                                                                                 
                             {
                             //  <ProtectedRoute path="/profile" component={SymProfile}/>

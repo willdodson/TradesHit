@@ -1,3 +1,3 @@
-import http from './http';
+import { http, AccessTokenFactory } from './http';
 
-export { http };
+export { http, AccessTokenFactory };

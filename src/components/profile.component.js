@@ -27,14 +27,22 @@ class SymProfile extends React.Component {
     _handleChange = (e, name) => {
         switch(name){
             case "First Name": 
-                this.setState({
-                    user: { ...this.state.user, firstName: e.target.value}
-                });
+                this.setState({ user: { ...this.state.user, firstName: e.target.value} });
                 break;
             case "Last Name":
-                this.setState({
-                    user: { ...this.state.user, lastName: e.target.value }
-                });
+                this.setState({ user: { ...this.state.user, lastName: e.target.value } });
+                break;
+            case "Street":
+                this.state.user.address.street = e.target.value;
+                this.setState({ user: { ...this.state.user } });
+                break;
+            case "City":
+                this.state.user.address.city = e.target.value;
+                this.setState({ user: { ...this.state.user } });
+                break;
+            case "Pincode":
+                this.state.user.address.pincode = e.target.value;
+                this.setState({ user: { ...this.state.user } });
                 break;
             default:
                 break;
@@ -54,26 +62,55 @@ class SymProfile extends React.Component {
         const user = this.state.user;
         return (
                 <div>
-                    <Segment raised>
-                        <Label as='a' color='red' ribbon>Basic Info</Label>
-                        <div style={ProfileStyles.BasicInfo.Input}>
-                            <Input
-                                onChange={(e, data) => this._handleChange(e, "First Name")}
-                                value={ user.firstName }
-                                labelPosition={labelConfig.labelPosition} 
-                                label={{ ...labelConfig, content: 'First Name' }}
-                            />
-                        </div>
-                        <div style={ProfileStyles.BasicInfo.Input}>
-                            <Input
-                                onChange={(e, data) => this._handleChange(e, "Last Name")}
-                                value={ user.lastName }
-                                labelPosition={labelConfig.labelPosition} 
-                                label={{ ...labelConfig, content: 'Last Name' }}
-                            />
-                        </div>
-                     </Segment>
-                     <Segment textAlign="center">
+                    <Segment.Group horizontal>
+                        <Segment raised>
+                            <Label as='a' color='red' ribbon>Basic Info</Label>
+                            <div style={ProfileStyles.BasicInfo.Input}>
+                                <Input
+                                    onChange={(e, data) => this._handleChange(e, "First Name")}
+                                    value={ user.firstName }
+                                    labelPosition={labelConfig.labelPosition} 
+                                    label={{ ...labelConfig, content: 'First Name' }}
+                                />
+                            </div>
+                            <div style={ProfileStyles.BasicInfo.Input}>
+                                <Input
+                                    onChange={(e, data) => this._handleChange(e, "Last Name")}
+                                    value={ user.lastName }
+                                    labelPosition={labelConfig.labelPosition} 
+                                    label={{ ...labelConfig, content: 'Last Name' }}
+                                />
+                            </div>
+                        </Segment>
+                        <Segment raised>
+                            <Label as='a' color='red' ribbon>Shipping Info</Label>
+                            <div style={ProfileStyles.BasicInfo.Input}>
+                                <Input
+                                    onChange={(e, data) => this._handleChange(e, "Street")}
+                                    value={ user.address.street }
+                                    labelPosition={labelConfig.labelPosition} 
+                                    label={{ ...labelConfig, content: 'Street' }}
+                                />
+                            </div>
+                            <div style={ProfileStyles.BasicInfo.Input}>
+                                <Input
+                                    onChange={(e, data) => this._handleChange(e, "City")}
+                                    value={ user.address.city }
+                                    labelPosition={labelConfig.labelPosition} 
+                                    label={{ ...labelConfig, content: 'City' }}
+                                />
+                            </div>
+                            <div style={ProfileStyles.BasicInfo.Input}>
+                                <Input
+                                    onChange={(e, data) => this._handleChange(e, "Pincode")}
+                                    value={ user.address.pincode }
+                                    labelPosition={labelConfig.labelPosition} 
+                                    label={{ ...labelConfig, content: 'pincode' }}
+                                />
+                            </div>
+                        </Segment>  
+                    </Segment.Group>
+                    <Segment textAlign="center">
                         <Button color={CommonStyles.primaryButtonColor}
                                 loading={user.meta.isProcessing}
                                 onClick={this.onSaveButtonClick}

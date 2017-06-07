@@ -16,7 +16,7 @@ export default class App extends React.Component {
         return (
                 <Router>
                     <div>
-                        <SymHeader user={dummyUser}></SymHeader>
+                        <SymHeader></SymHeader>
                         <AppContainer></AppContainer>
                         <SymFooter></SymFooter>
                     </div>

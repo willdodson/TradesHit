@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Menu, Grid, Header } from 'semantic-ui-react';
 
 import SymSearch from '../components/search.component';
@@ -15,11 +16,10 @@ const MenuItems = [
     { displayName: 'Books',  categories: [{displayName: 'Novels'}, {displayName: 'Magzines'}, {displayName: 'Academics'}]}
 ];
 
-export default class SymHeader extends React.Component {
+class SymHeader extends React.Component {
     state = {};
 
     render() {
-        console.log('Common Styles --> ', CommonStyles);
         const { activeItem } = this.state;
         return (
             <Grid style={CommonStyles.header}>
@@ -40,3 +40,9 @@ export default class SymHeader extends React.Component {
         );
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        user: state.user
+    }
+}
+export default connect(mapStateToProps)(SymHeader);
