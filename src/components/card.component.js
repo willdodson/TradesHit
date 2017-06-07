@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Card, Icon, Image, Button } from 'semantic-ui-react';
 
 import CommonStyles from '../constants/common.styles';
+import SymBuyNowBtn from './buy_now_btn.component';
+import SymAddToBasketBtn from './add_to_basket_btn.component';
 
 const CardStyles = {
     CardLayout: {
@@ -37,13 +39,9 @@ class SymCard extends React.Component {
                 </Card.Content>
                 <Card.Content extra>
                     <Button.Group>
-                        <Button color={CommonStyles.secondaryButtonColor}>
-                              <Icon name='shopping basket' /> Add to Basket
-                        </Button>
+                        <SymAddToBasketBtn />
                         <Button.Or />
-                        <Button color={CommonStyles.primaryButtonColor}>
-                            <Icon name='lightning' />Buy Now
-                        </Button>
+                        <SymBuyNowBtn />
                     </Button.Group>
                 </Card.Content>
             </Card>
