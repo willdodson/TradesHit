@@ -27,8 +27,8 @@ class SymCard extends React.Component {
             <Card   color={CommonStyles.colorName} 
                     style={CardStyles.CardLayout}
                     onClick={ (e, data) => this.onCardClick(e, data, this.props.item) }>
-                <Image src='/assets/images/product.jpg' />
                 <Card.Content>
+                    <Image src='/assets/images/product.jpg' />
                     <Card.Header> { this.props.item.displayName } </Card.Header>
                     <Card.Meta>
                         <span className='date'>
@@ -39,9 +39,11 @@ class SymCard extends React.Component {
                 </Card.Content>
                 <Card.Content extra>
                     <Button.Group>
-                        <SymAddToBasketBtn />
+                        <SymAddToBasketBtn item={this.props.item} 
+                                        history={this.props.history}/>
                         <Button.Or />
-                        <SymBuyNowBtn />
+                        <SymBuyNowBtn item={this.props.item} 
+                                    history={this.props.history}/>
                     </Button.Group>
                 </Card.Content>
             </Card>
