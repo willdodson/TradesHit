@@ -1,33 +1,58 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { Input, Icon, Header } from 'semantic-ui-react';
+import { Input, Icon, Header, TextArea, Label } from 'semantic-ui-react';
 import CommonStyles from '../constants/common.styles';
+
 
 class SymAddress extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            inEditMode: !!this.props.user.address
+        if(this.props.user && this.props.user.address){
+            this.state = { 
+                address: this.getConcatenatedAddress(this.props.user.address),
+            };
+        }else {
+            this.state = { 
+                address: this.getConcatenatedAddress(),
+            };
         }
     }
 
+    componentWillReceiveProps = (nextProps) => {
+        this.setState({ address: this.getConcatenatedAddress(nextProps.user.address)});
+    }
+
+    getConcatenatedAddress = (address) => {
+        if(address && address.city && address.street && address.pincode){
+            return `${address.street},\n${address.city},\npincode - ${address.pincode} `;
+        }
+            return '';
+
+    }
+
+
     render() {
+        // console.log('Address is ->', address, 'State is', this.state.address);
         return (
             <div>
-                <Header as='h2' textAlign="center">
+                <Header as='h4'>
                     <Icon name='truck' />
-                    <Header.Content> Shipping information</Header.Content>
+                    <Header.Content> 
+                        Shipping information
+                        <Header.Subheader>
+                            Your item will be delivered here..
+                        </Header.Subheader>
+                    </Header.Content>
                 </Header>
-                <Input
-                    label={{ tag: true, content: this.state.inEditMode? 'Add your address': 'Ship on address', color:  this.state.inEditMode ? CommonStyles.labelPrimaryColor: CommonStyles.labelSecondaryColor}}
-                    labelPosition='left'
-                    disabled={!this.state.inEditMode}
-                    placeholder='Add your address here.'
-                    defaultValue={this.props.user.address}
-                />
-                <Icon name="edit" size="big" onClick={ e => {this.setState({inEditMode: !this.state.inEditMode})}}/> 
+                <div>
+                    <TextArea
+                        autoHeight
+                        value={this.state.address}
+                        onChange={(e, data) => { this.setState({ address: e.target.value }) }}
+                    />
+                </div>
             </div>
         );
     }

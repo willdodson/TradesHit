@@ -42,8 +42,7 @@ class SymCard extends React.Component {
                         <SymAddToBasketBtn item={this.props.item} 
                                         history={this.props.history}/>
                         <Button.Or />
-                        <SymBuyNowBtn item={this.props.item} 
-                                    history={this.props.history}/>
+                        <SymBuyNowBtn item={this.props.item}/>
                     </Button.Group>
                 </Card.Content>
             </Card>

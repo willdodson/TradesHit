@@ -1,10 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux'; 
-import { Item, Input, Divider, Image, Button, Icon } from 'semantic-ui-react';
-import SymAddress from '../components/address.component';
-import CommonStyles from '../constants/common.styles';
+import { Segment, Header } from 'semantic-ui-react';
+// import SymAddress from '../components/address.component';
+// import CommonStyles from '../constants/common.styles';
 import { fetchProductDetailPageContent } from '../actions/product_detail.actions';
 import SymLoader from '../components/loader.component';
+import SymItemDetail from '../containers/item_info.container';
+import SymAddToBasket from '../components/add_to_basket_btn.component';
+import SymBuyNow from '../components/buy_now_btn.component';
 
 class SymProducDetail extends React.Component {
 
@@ -22,45 +25,31 @@ class SymProducDetail extends React.Component {
 
         const product = this.props.product.detail;
         return (
-            <div> 
-                <Item.Group>
-                <Item>
-                    <Item.Image size='large' src='../assets/images/product.jpg'/>
-
-                    <Item.Content>
-                        <Item.Header as='a'>{ product.displayName}</Item.Header>
-                        <Item.Meta> 
-                            <Icon name="rupee"/>
-                            <span className='price'>{ product.price }</span>
-                        </Item.Meta>
-                        <Item.Description>
-                            <p> Description </p>
-                            <p> { product.description } </p>
-                        </Item.Description>
-                        <Item.Extra>
-                            <Button.Group>
-                                <Button color={CommonStyles.secondaryButtonColor}>
-                                    <Icon name='shopping basket' /> Add to Basket
-                                </Button>
-                                <Button.Or />
-                                <Button color={CommonStyles.primaryButtonColor}>
-                                    <Icon name='lightning' />Buy Now
-                                </Button>
-                                </Button.Group>
-                        </Item.Extra>
-                    </Item.Content>
-                </Item>
-                </Item.Group>
-                <Divider />
-                <SymAddress />
-            </div>
+            <Segment.Group horizontal>
+                <Segment>
+                    <SymItemDetail item={product}/>
+                </Segment>
+                <Segment>
+                    <Header as='h4'>
+                        <Header.Content> Your actions 
+                            <Header.Subheader>
+                                Would you like to
+                            </Header.Subheader>
+                        </Header.Content>
+                    </Header>
+                    <Header sub>
+                        <SymBuyNow item={product} { ...this.props}/>
+                        <SymAddToBasket item={product} { ...this.props}/>
+                    </Header>
+                </Segment>
+            </Segment.Group>
         );
     }
 }
 
 const mapSTateToProps = (state) => {
     return {
-        product: state.productDetail
+        product: state.productDetail,
     };
 }
 

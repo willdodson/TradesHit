@@ -36,9 +36,9 @@ const signin = (userInput) => {
             saveAccessToken: true
         }) 
             .then(data => {
-                dispatch({type: SignUpActions.SignupSuccess, payload: data.user})
+                dispatch({type: SignInActions.SignInSuccess, payload: data.user})
             })
-            .catch(error => dispatch({type: SignUpActions.SignupFail, payload: error}))
+            .catch(error => dispatch({type: SignInActions.SignInFail, payload: error}))
     }
 }
 

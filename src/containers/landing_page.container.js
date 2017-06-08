@@ -6,14 +6,6 @@ import SymHorizontalList from '../components/horizontal_list.component';
 import { fetchLandingPageContent } from '../actions/landing_page.actions';
 import SymLoader from '../components/loader.component';
 
-const Data = {
-    sections: [
-        { displayName: 'Top Deals', items: [1,2,3]},
-        { displayName: 'Your searches', items: [1,2,3]},
-        { displayName: 'Top selliing', items: [1,2,3]}
-    ]
-};
-
 class SymLandingPage extends React.Component{
     constructor(props) {
         super(props);

@@ -1,13 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux'; 
-import { Item, Input, Divider, Image, Button, Icon, Segment, Header } from 'semantic-ui-react';
-import SymAddress from '../components/address.component';
-import CommonStyles from '../constants/common.styles';
+import { Segment, Header, Icon } from 'semantic-ui-react';
+// import SymAddress from '../components/address.component';
+// import CommonStyles from '../constants/common.styles';
 import { fetchProductDetailPageContent } from '../actions/product_detail.actions';
 import SymLoader from '../components/loader.component';
 import SymPayNowBtn from  '../components/pay_btn.component';
-import SymBillingSummary from '../components/bill_summary.component';
-import SymItemDescription from '../components/item_description.component';
+// import SymBillingSummary from '../components/bill_summary.component';
+// import SymItemDescription from '../components/item_description.component';
+import SymItemDetail from '../containers/item_info.container';
 
 class SymBuyNow extends React.Component {
     constructor(props) {
@@ -24,36 +25,23 @@ class SymBuyNow extends React.Component {
 
         const product = this.props.product.detail;
         return (
-            <div> 
-                <Item.Group>
-                <Item>
-                    <Item.Image size='large' src='../../assets/images/product.jpg'/>
-
-                    <Item.Content>
-                        <Item.Header as='a'>{ product.displayName}</Item.Header>
-                        <Item.Meta> 
-                            <Icon name="rupee"/>
-                            <span className='price'>{ product.price }</span>
-                        </Item.Meta>
-                        <Item.Description>
-                            <Segment>
-                                <SymItemDescription item={ product }/>
-                            </Segment>
-                            <Segment>
-                                <SymBillingSummary item={ product }/>
-                            </Segment>
-                        </Item.Description>
-                        <Item.Extra>
-                            <Divider />
-                            <SymPayNowBtn item={ product } />
-                        </Item.Extra>
-                    </Item.Content>
-                </Item>
-                </Item.Group>
-                <Divider />
-
-                <SymAddress />
-            </div>
+            <Segment.Group horizontal>
+                <Segment>
+                    <SymItemDetail item={product}/>
+                </Segment>
+                <Segment>
+                    <Header as='h4'>
+                        <Header.Content> Your actions 
+                            <Header.Subheader>
+                                Would you like to
+                            </Header.Subheader>
+                        </Header.Content>
+                    </Header>
+                    <Header sub>
+                        <SymPayNowBtn  item={product} { ...this.props }/>
+                    </Header>
+                </Segment>
+            </Segment.Group>
         );
     }
 }

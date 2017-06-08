@@ -165,8 +165,9 @@ const LoginUser = (function () {
     return {
         firstName: 'Jack',
         lastName: 'Danieal',
-        address: 'Everywhere',
-        active: true
+        address: '',
+        active: true,
+
     };
 })();
 

@@ -1,6 +1,8 @@
 import { Dropdown } from 'semantic-ui-react';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 import React from 'react';
+// import { withRouter } from 'react-router';
+import { connect } from 'react-redux';
 
 const Label = {
     color: 'white',
@@ -13,9 +15,10 @@ const Label = {
         Settings: { name: 'settings', text: 'Settings' },
         Help: { name: 'help', text: 'Help me!', icon: 'help' },
         Signout: { name: 'signout', text: 'Signout', description: 'See you later'  },
+        MyOrders: { name: 'my_orders', text: 'My Orders'}
     }
 
-export default class AccountDropDown extends React.Component {
+class AccountDropDown extends React.Component {
 
     handleClick = (e, data, name) => {
         e.preventDefault();
@@ -27,6 +30,7 @@ export default class AccountDropDown extends React.Component {
             break; 
         }
     };
+
     render() {
         return (
             
@@ -35,6 +39,10 @@ export default class AccountDropDown extends React.Component {
                 
                     <Dropdown.Item >
                         <Link to="/profile"> { DropDownItems.Account.text }</Link>
+                    </Dropdown.Item>
+
+                    <Dropdown.Item>
+                        <Link to={`${this.props.user._id}/orders`}> { DropDownItems.MyOrders.text }</Link>
                     </Dropdown.Item>
 
                     <Dropdown.Item>
@@ -55,3 +63,10 @@ export default class AccountDropDown extends React.Component {
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        user: state.user
+    }
+}
+export default connect(mapStateToProps)(AccountDropDown);

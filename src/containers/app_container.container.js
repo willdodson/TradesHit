@@ -11,6 +11,8 @@ import SymRoute from '../components/custom_route.component';
 import ProtectedRoute from '../components/withAuth.component';
 import SymBuyNow from './buy_now.container';
 import { AccessTokenFactory } from '../utils/index'; 
+import SymUserBasket from './user_basket.container';
+import SymUserOrders from './user_orders.container';
 
 let isAuthenticated = (wrappedComponent) => {
     return (props) => {
@@ -21,6 +23,7 @@ let isAuthenticated = (wrappedComponent) => {
             <Redirect to='/' />
 
         );
+        
     }
 };
 export default class AppContainer extends React.Component {
@@ -39,6 +42,8 @@ export default class AppContainer extends React.Component {
                                 <Route path="/item/:name/buy_now" component={SymBuyNow}/>                                                                                     
                                 <Route path="/item/:name" component={SymProducDetail} />
                             </Switch>
+                            <Route path='/:userId/basket' component={SymUserBasket} />
+                            <Route path='/:userId/orders' component={SymUserOrders} />
                             <Route path="/profile" component={isAuthenticated(SymProfile)} />
                         </Grid.Column>
                         <Grid.Column width={2}></Grid.Column>

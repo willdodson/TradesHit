@@ -28,7 +28,7 @@ const SignUpActions = {
 const SignInActions = {
     SignInStart: 'SignInStart',
     SignInSuccess: 'SignInSuccess',
-    SignInEnd: 'SignInEnd'
+    SignInFail: 'SignInFail'
 }
 
 const UpdateUserProfileActions = {

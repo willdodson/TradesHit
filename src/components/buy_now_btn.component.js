@@ -1,8 +1,9 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 import { Icon, Button } from 'semantic-ui-react';
 import CommonStyles from '../constants/common.styles';
 
-export default class SymBuyNowBtn extends React.Component{
+class SymBuyNowBtn extends React.Component{
     
     onBuyNowBtnClick = (event, data, item) => {
         console.log('Buy Now clicked');
@@ -21,3 +22,5 @@ export default class SymBuyNowBtn extends React.Component{
         );
     }
 }
+
+export default withRouter(SymBuyNowBtn);

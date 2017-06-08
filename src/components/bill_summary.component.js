@@ -37,17 +37,17 @@ export default class SymBillSummary extends React.Component{
                     <Icon name='credit card alternative' />
                     <Header.Content>
                         Billing Information
-                    <Header.Subheader>
-                        {`You will be charged `}
-                        <Icon name="rupee"/>
-                        {`${priceInfo.total} for`}
-                        <Input type="number" 
-                            transparent
-                            value={this.state.qty} 
-                            onChange={(e, data) => this.onQtyUpdated(e, data)}/>
-                        { `item.`}
+                        <Header.Subheader>
+                            {`You will be charged `}
+                            <Icon name="rupee"/>
+                            {`${priceInfo.total} for`}
+                            <Input type="number" 
+                                transparent
+                                value={this.state.qty} 
+                                onChange={(e, data) => this.onQtyUpdated(e, data)}/>
+                            { `item.`}
 
-                    </Header.Subheader>
+                        </Header.Subheader>
                     </Header.Content>
                 </Header>
                 <div>
