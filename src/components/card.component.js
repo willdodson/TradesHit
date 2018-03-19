@@ -32,7 +32,7 @@ class SymCard extends React.Component {
                     <Card.Header> { this.props.item.displayName } </Card.Header>
                     <Card.Meta>
                         <span className='date'>
-                            <Icon name='rupee' /> { this.props.item.price }
+                            {/* <Icon name='rupee' /> { this.props.item.price } */}
                         </span>
                     </Card.Meta>
                     <Card.Description> { this.props.item.url || '< Description not available >'} </Card.Description>

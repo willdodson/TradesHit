@@ -6,7 +6,7 @@ import BasketItem from './basket_item.component';
 export default class SymBasketItemList extends React.Component{
 
     render() {
-        console.log('Basket Items in Basket list...', this.props);
+        console.log('Watchlist...', this.props);
         return (
             <Segment>
                 <Item.Group divided>

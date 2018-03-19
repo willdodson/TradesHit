@@ -17,7 +17,7 @@ class SymUserOrders extends React.Component {
 
     render() {
         const user = this.state.user;
-        console.log('Basket items in userBasket...', user.basketItems);
+        console.log('Watchlist...', user.basketItems);
         return (
             <div>
                 <SymOrderedItemList  items={ user.orders } 

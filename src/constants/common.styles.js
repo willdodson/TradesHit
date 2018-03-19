@@ -1,13 +1,13 @@
 const ApplicationThemes = {
     Violet: {
-        primaryButtonColor: 'violet',
-        secondaryButtonColor: 'olive',
+        primaryButtonColor: 'tan',
+        secondaryButtonColor: 'skyblue',
         backgroundColor: '#6435C9',
-        colorName: 'violet',
+        colorName: 'lightgrey',
         labelPrimaryColor: 'red',
         labelSecondaryColor: 'green',
         header: {
-            backgroundColor: '#6435C9',
+            backgroundColor: 'maroon',
             margin: 0
         }
     },

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Link, Route, Redirect, Switch } from 'react-ro
 import LandingPage from './landing_page.container';
 import SymBreadCrumb from '../components/breadcrum.component';
 import { Menu, Card, Icon, Image, Grid } from 'semantic-ui-react';
-import SysAdvertisementBanner from '../components/advertisement.component';
+// import SysAdvertisementBanner from '../components/advertisement.component';
 import SymSection from './section.container';
 import SymProducDetail from './product_detail.container';
 import SymProfile from '../components/profile.component';
@@ -30,7 +30,7 @@ export default class AppContainer extends React.Component {
     render() {
         return (
                 <div>   
-                    <SysAdvertisementBanner> </SysAdvertisementBanner>
+                   
              
                     <Grid columns={4}>
                         <Grid.Column width={1}> </Grid.Column>

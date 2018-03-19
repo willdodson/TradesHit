@@ -15,7 +15,7 @@ class SymAddToBasket extends React.Component{
         return (
             <Button color={CommonStyles.secondaryButtonColor} 
                     onClick={(e, data) => this.onAddToBasketBtnClick(e, data, this.props.item)}>
-                <Icon name='shopping basket' /> Add to Basket
+                 Add to Watchlist
             </Button>
         );
     }

@@ -17,7 +17,7 @@ class SymBuyNowBtn extends React.Component{
         return (
             <Button color={CommonStyles.primaryButtonColor}
                     onClick={(e, data) => this.onBuyNowBtnClick(e, data, this.props.item)}>
-                <Icon name='lightning' />Buy Now
+                <Icon name='lightning' />Propose a Trade!
             </Button>
         );
     }

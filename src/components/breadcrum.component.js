@@ -4,7 +4,7 @@ import { Breadcrumb } from 'semantic-ui-react';
 const sections = [
   { key: 'Home', content: 'Home', link: true },
   { key: 'Store', content: 'Store', link: true },
-  { key: 'Shirt', content: 'T-Shirt', active: true },
+  { key: 'Shirt', content: 'The Good Stuff', active: true },
 ]
 
 export default class SymBreadCrum extends React.Component {

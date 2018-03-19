@@ -11,9 +11,9 @@ import SymSigningModal from '../components/signing.component';
 import CommonStyles from '../constants/common.styles';
 
 const MenuItems = [
-    { displayName: 'Fashion', categories: [{displayName: 'Footwear'}, {displayName: 'Topwear'}, {displayName: 'Bottomwear'}]},
-    { displayName: 'Electronics',  categories: [{displayName: 'Mobiles'}, {displayName: 'Tablets'}, {displayName: 'Laptops'}]},
-    { displayName: 'Books',  categories: [{displayName: 'Novels'}, {displayName: 'Magzines'}, {displayName: 'Academics'}]}
+    { displayName: '~$20', categories: [{displayName: 'Footwear'}, {displayName: 'Topwear'}, {displayName: 'Bottomwear'}]},
+    { displayName: '~$50',  categories: [{displayName: 'Mobiles'}, {displayName: 'Tablets'}, {displayName: 'Laptops'}]},
+    { displayName: 'The Good Stuff',  categories: [{displayName: 'Novels'}, {displayName: 'Magzines'}, {displayName: 'Academics'}]}
 ];
 
 class SymHeader extends React.Component {
@@ -24,8 +24,9 @@ class SymHeader extends React.Component {
         return (
             <Grid style={CommonStyles.header}>
                 <Grid.Row columns={3}>
-                    <Grid.Column width={1}>  <SymLogo />   </Grid.Column>
-                    <Grid.Column width={13}> <SymSearch /> </Grid.Column>
+                    <Grid.Column width={1}>  X </Grid.Column>
+                    <Grid.Column width={3}>  <h3>TradesHit!</h3>  </Grid.Column>
+                    <Grid.Column width={8}> <SymSearch /> </Grid.Column>
                     <Grid.Column width={2}>
                         {
                             this.props.user ? (<SymSigningModal />): 
