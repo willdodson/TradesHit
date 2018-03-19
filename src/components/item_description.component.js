@@ -9,7 +9,7 @@ export default class SymItemDescription extends React.Component{
             <div>
                 <Header as="h4">
                     <Icon name='info circle' />
-                    <Header.Content>Product Details</Header.Content>
+                    <Header.Content>Item Info</Header.Content>
                     <Header.Subheader></Header.Subheader>
                 </Header>
                 <Header.Subheader>{ this.props.item.description }</Header.Subheader>

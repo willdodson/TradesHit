@@ -9,15 +9,15 @@ class SymBuyNowBtn extends React.Component{
         console.log('Buy Now clicked');
         event.stopPropagation();
 
-        // go to buy now page.
+        // go to Trade page.
         this.props.history.push(`/item/${item.displayName}/buy_now`)
     }
 
     render() {
         return (
-            <Button color={CommonStyles.primaryButtonColor}
+            <Button centered compact color={CommonStyles.primaryButtonColor}
                     onClick={(e, data) => this.onBuyNowBtnClick(e, data, this.props.item)}>
-                <Icon name='lightning' />Propose a Trade!
+                Make a Trade
             </Button>
         );
     }

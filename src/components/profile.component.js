@@ -83,7 +83,7 @@ class SymProfile extends React.Component {
                             </div>
                         </Segment>
                         <Segment raised>
-                            <Label as='a' color='red' ribbon>Shipping Info</Label>
+                            <Label as='a' color='red' ribbon>Email</Label>
                             <div style={ProfileStyles.BasicInfo.Input}>
                                 <Input
                                     onChange={(e, data) => this._handleChange(e, "Street")}

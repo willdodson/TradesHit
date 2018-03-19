@@ -58,7 +58,7 @@ export default class SignUpForm extends React.Component {
                 this.setState({ email: e.target.value });
                 break;
             case SignUpFormAttributes.Password.inputName:
-                this.setState({ password: e.target.value });
+                this.setState({ password: e.target.value },{active:true});
                 break;
             default:
                 break;
@@ -96,10 +96,11 @@ export default class SignUpForm extends React.Component {
                 <input placeholder='Your password goes here' 
                         onChange={(e) => this.handleChange(e, SignUpFormAttributes.Password.inputName)}
                         name={SignUpFormAttributes.Password.inputName}/>
+
                 </Form.Field>
 
                 <Form.Field>
-                    <Checkbox label='I agree to the Terms and Conditions' />
+                    <Checkbox label='I agree to be a good person' />
                 </Form.Field>
 
                 <Button onClick={ (e, data) => this._handler(e, data)}>Submit</Button>

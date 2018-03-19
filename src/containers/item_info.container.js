@@ -29,7 +29,7 @@ export default class SymItemDetail extends React.Component {
                     <Item.Content>
                         <Item.Header as='a'>{ product.displayName}</Item.Header>
                         <Item.Meta> 
-                            <Icon name="rupee"/>
+                            
                             <span className='price'>{ product.price }</span>
                         </Item.Meta>
                         <Item.Description>

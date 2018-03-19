@@ -45,7 +45,7 @@ class SymSigningModal extends React.Component {
         return (
             <div>
                 <Modal trigger={<p style={SigningStyles.GreetingLabel}> Login </p>}>
-                    <Modal.Header>Existing User - Login here</Modal.Header>
+                    <Modal.Header> Login and Hit it!</Modal.Header>
                     <Modal.Content image>
                         <Image wrapped size='medium' src='../assets/images/login_icon.png' />
                         <Modal.Description>

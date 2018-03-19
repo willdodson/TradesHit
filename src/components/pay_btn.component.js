@@ -14,9 +14,9 @@ export default class SymPayNowBtn extends React.Component{
 
     render() {
         return (
-            <Button color={CommonStyles.primaryButtonColor}
+            <Button fluid color={CommonStyles.primaryButtonColor}
                     onClick={(e, data) => this.onBuyNowBtnClick(e, data, this.props.item)}>
-                <Icon name='payment' />Pay now
+                <Icon fitted size='medium' name='hand rock' />Hit it!
             </Button>
         );
     }

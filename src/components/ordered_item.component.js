@@ -15,7 +15,7 @@ class SymOrderedItem extends React.Component{
                     <Item.Header as='a'>{ this.props.item.displayName }</Item.Header>
                     <Item.Meta>
                         <span className="date">
-                            <Icon name="rupee" />
+                            
                             { this.props.item.price}
                         </span>
                     </Item.Meta>

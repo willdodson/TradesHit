@@ -48,8 +48,8 @@ export default class LoginForm extends React.Component{
             <Form>
                 <div>
                     <Form.Field>
-                    <label>Username/email</label>
-                    <input placeholder='Enter your username or email' 
+                    <label>Username/Email</label>
+                    <input placeholder='Username/Email' 
                             value={this.state.email} 
                             onChange={(e) => this.handleChange(e, LoginFormAttributes.Email.inputName)}
                             name={LoginFormAttributes.Email.inputName}/>
@@ -58,7 +58,7 @@ export default class LoginForm extends React.Component{
 
                     <Form.Field>
                     <label>Password</label>
-                    <input placeholder='Your password goes here' 
+                    <input placeholder='Password' 
                             value={this.state.password}
                             onChange={(e) => this.handleChange(e, LoginFormAttributes.Password.inputName)}
                             name={LoginFormAttributes.Password.inputName}/>

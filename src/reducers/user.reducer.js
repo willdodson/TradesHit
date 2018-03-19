@@ -1,7 +1,7 @@
 const initialState = {
-    address: null,
-    firstName: null,
-    lastName: null,
+    address: 'wsdodson@icloud.com',
+    firstName: 'Willy',
+    lastName: 'D',
     active: false,
     meta: {
         isLoggedIn: false,

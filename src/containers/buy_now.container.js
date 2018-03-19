@@ -19,7 +19,7 @@ class SymBuyNow extends React.Component {
     render() {
         if(this.props.product.isFetching || !this.props.product.detail){
             return (
-                <SymLoader text="Please wait while we are getting more details for you!"/>
+                <SymLoader text="Please wait while we get the goods!"/>
             )
         }
 
@@ -31,9 +31,9 @@ class SymBuyNow extends React.Component {
                 </Segment>
                 <Segment>
                     <Header as='h4'>
-                        <Header.Content> Your actions 
+                        <Header.Content textAlign='center'> Congrats
                             <Header.Subheader>
-                                Would you like to
+                                it's time to...
                             </Header.Subheader>
                         </Header.Content>
                     </Header>

@@ -40,9 +40,9 @@ class SymAddress extends React.Component {
                 <Header as='h4'>
                     <Icon name='truck' />
                     <Header.Content> 
-                        Shipping information
+                        Contact me @
                         <Header.Subheader>
-                            Your item will be delivered here..
+                            willyD@email.com
                         </Header.Subheader>
                     </Header.Content>
                 </Header>

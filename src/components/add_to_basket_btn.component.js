@@ -13,7 +13,7 @@ class SymAddToBasket extends React.Component{
 
     render() {
         return (
-            <Button color={CommonStyles.secondaryButtonColor} 
+            <Button centered compact color={CommonStyles.secondaryButtonColor} 
                     onClick={(e, data) => this.onAddToBasketBtnClick(e, data, this.props.item)}>
                  Add to Watchlist
             </Button>

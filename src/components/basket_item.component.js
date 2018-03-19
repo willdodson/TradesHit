@@ -14,12 +14,7 @@ class SymBasketItem extends React.Component{
 
                 <Item.Content>
                     <Item.Header as='a'>{ this.props.item.displayName }</Item.Header>
-                    <Item.Meta>
-                        <span className="date">
-                            <Icon name="rupee" />
-                            { this.props.item.price}
-                        </span>
-                    </Item.Meta>
+                    
                     <Item.Description>
                         { this.props.item.description }
                     </Item.Description>
